@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./AMDProductcss.css";
-import AMDMotherBoardData from "./AMDMotherBoardData";
 import { NavLink } from "react-router-dom";
 
 const AMDComp = () => {
