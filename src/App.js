@@ -6,6 +6,7 @@ import IntelProduct from "./components/Products/Intel/IntelProduct";
 import AMDProduct from "./components/Products/AMD/AMDProduct";
 import AMDMotherBoard from "./components/Products/AMD/AMDMotherBoard";
 import IntelMotherBoard from "./components/Products/Intel/IntelMotherBoard";
+import AMDComp from "./components/Products/AMD/AMDComp";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/components" element={<ComponentList />}></Route>
           <Route path="/products/intel" element={<IntelProduct />}></Route>
           <Route path="/products/AMD" element={<AMDProduct />}></Route>
+          <Route path="/AMDpro" element={<AMDComp />}></Route>
           <Route
             path="/products/AMDMotherBoard"
             element={<AMDMotherBoard />}
