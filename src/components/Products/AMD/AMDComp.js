@@ -32,29 +32,32 @@ const AMDComp = () => {
         </div>
 
         <div className="product">
-          {responseData.map((product) => (
-            <div className="productEach" key={product.id}>
-              <div className="productImage">
-                <NavLink to={"/product/AMD/${product.name}"}>
-                  <img
-                    src={`/Images/AMD/${product.category}.jpg`}
-                    alt={product.name}
-                  ></img>
-                </NavLink>
-              </div>
+          {responseData.map(
+            (product) =>
+              product.status == "processor" && (
+                <div className="productEach" key={product.id}>
+                  <div className="productImage">
+                    <NavLink to={"/product/AMD/${product.name}"}>
+                      <img
+                        src={`/Images/AMD/${product.category}.jpg`}
+                        alt={product.name}
+                      ></img>
+                    </NavLink>
+                  </div>
 
-              <div className="productInfo">
-                <NavLink to={"/product/AMD/${product.name}"}>
-                  <p>{product.name}</p>
-                </NavLink>
-                <p>₹{product.price}</p>
-                <p>{product.status}</p>
-                <div className="buttondiv">
-                  <button className="buttonproduct">Add to Cart</button>
+                  <div className="productInfo">
+                    <NavLink to={"/product/AMD/${product.name}"}>
+                      <p>{product.name}</p>
+                    </NavLink>
+                    <p>₹{product.price}</p>
+                    <p>{product.status}</p>
+                    <div className="buttondiv">
+                      <button className="buttonproduct">Add to Cart</button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              )
+          )}
         </div>
       </main>
     </div>
