@@ -34,7 +34,7 @@ const AMDComp = () => {
           {responseData.map(
             (product) =>
               product.status == "processor" && (
-                <div className="productEach" key={product.id}>
+                <div className="productEach" key={product.compId}>
                   <div className="productImage">
                     <NavLink to={"/product/AMD/${product.name}"}>
                       <img
