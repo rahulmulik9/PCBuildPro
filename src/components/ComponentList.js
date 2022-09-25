@@ -33,7 +33,7 @@ const ComponentList = () => {
               <th>Name</th>
               <th>Catergory</th>
               <th>Price</th>
-              <th>Status</th>
+              <th>Quantity</th>
             </tr>
           </thead>
           <tbody>
@@ -43,7 +43,7 @@ const ComponentList = () => {
                 <td>{val.name}</td>
                 <td>{val.category}</td>
                 <td>{val.price}</td>
-                <td>{val.status}</td>
+                <td>{val.quantity}</td>
               </tr>
             ))}
           </tbody>

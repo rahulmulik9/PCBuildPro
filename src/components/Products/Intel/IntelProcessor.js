@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./AMDProductcss.css";
+import "./IntelProductcss.css";
 import { NavLink } from "react-router-dom";
 
-const AMDComp = () => {
+const IntelProcessor = () => {
   const [responseData, setResponseData] = useState([]);
 
   const custList = () => {
@@ -27,34 +27,31 @@ const AMDComp = () => {
 
       <main>
         <div className="subcat">
-          <h2>Motherboard</h2>
+          <h2>Processor</h2>
         </div>
 
         <div className="product">
           {responseData.map(
             (product) =>
-              product.category == "amd" &&
-              product.quantity > 0 && (
+              product.status == "intel" && (
                 <div className="productEach" key={product.compId}>
                   <div className="productImage">
                     <NavLink to={"/product/AMD/${product.name}"}>
                       <img
-                        src={`/Images/AMD/${product.link}.jpg`}
+                        src={`/Images/intel/${product.category}.jpg`}
                         alt={product.name}
                       ></img>
                     </NavLink>
                   </div>
 
                   <div className="productInfo">
-                    <NavLink to={"/product/AMD/${product.name}"}>
+                    <NavLink to={"/product/intel/${product.name}"}>
                       <p>{product.name}</p>
                     </NavLink>
                     <p>₹{product.price}</p>
-                    <p>{product.description}</p>
+                    <p>{product.status}</p>
                     <div className="buttondiv">
-                      <NavLink to={"/products/AMDMotherbrd"}>
-                        <button className="buttonproduct">Select</button>
-                      </NavLink>
+                      <button className="buttonproduct">Add to Cart</button>
                     </div>
                   </div>
                 </div>
@@ -66,4 +63,4 @@ const AMDComp = () => {
   );
 };
 
-export default AMDComp;
+export default IntelProcessor;
