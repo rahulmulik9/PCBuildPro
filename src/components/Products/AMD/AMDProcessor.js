@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./AMDProductcss.css";
 import { NavLink } from "react-router-dom";
 
-const AMDComp = () => {
+const AMDProcessor = () => {
   const [responseData, setResponseData] = useState([]);
 
   const custList = () => {
@@ -37,22 +37,18 @@ const AMDComp = () => {
               product.quantity > 0 && (
                 <div className="productEach" key={product.compId}>
                   <div className="productImage">
-                    <NavLink to={"/product/AMD/${product.name}"}>
-                      <img
-                        src={`/Images/AMD/${product.link}.jpg`}
-                        alt={product.name}
-                      ></img>
-                    </NavLink>
+                    <img
+                      src={`/Images/AMD/${product.link}.jpg`}
+                      alt={product.name}
+                    ></img>
                   </div>
 
                   <div className="productInfo">
-                    <NavLink to={"/product/AMD/${product.name}"}>
-                      <p>{product.name}</p>
-                    </NavLink>
+                    <p>{product.name}</p>
                     <p>₹{product.price}</p>
                     <p>{product.description}</p>
                     <div className="buttondiv">
-                      <NavLink to={"/products/AMDMotherbrd"}>
+                      <NavLink to={"/products/IntelMotherBoard"}>
                         <button className="buttonproduct">Select</button>
                       </NavLink>
                     </div>
@@ -66,4 +62,4 @@ const AMDComp = () => {
   );
 };
 
-export default AMDComp;
+export default AMDProcessor;

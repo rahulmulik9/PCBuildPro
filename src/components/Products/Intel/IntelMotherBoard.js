@@ -1,9 +1,26 @@
-import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./IntelProductcss.css";
-import intelMotherBoardData from "./IntelMotherboardData";
 import { NavLink } from "react-router-dom";
 
-const IntelProduct = () => {
+const IntelMotherBoard = () => {
+  const [responseData, setResponseData] = useState([]);
+
+  const custList = () => {
+    axios
+      .get("http://localhost:8080/components")
+      .then((response) => {
+        setResponseData(response.data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
+  useEffect(() => {
+    custList();
+  }, []);
+
   return (
     <div>
       <div className="Head"></div>
@@ -14,30 +31,35 @@ const IntelProduct = () => {
         </div>
 
         <div className="product">
-          {intelMotherBoardData.motherboard.map((product) => (
-            <div className="productEach" key={product.id}>
-              <div className="productImage">
-                <NavLink to={"/product/intel/${product.name}"}>
-                  <img src={product.Image} alt={product.name}></img>
-                </NavLink>
-              </div>
+          {responseData.map(
+            (product) =>
+              product.category == "motherboard" &&
+              product.quantity > 0 && (
+                <div className="productEach" key={product.compId}>
+                  <div className="productImage">
+                    <img
+                      src={`/Images/Motherboard/${product.link}.jpg`}
+                      alt={product.name}
+                    ></img>
+                  </div>
 
-              <div className="productInfo">
-                <NavLink to={"/product/intel/${product.name}"}>
-                  <p>{product.name}</p>
-                </NavLink>
-                <p>₹{product.price}</p>
-                <p>{product.discription}</p>
-                <div className="buttondiv">
-                  <button className="buttonproduct">Add to Cart</button>
+                  <div className="productInfo">
+                    <p>{product.name}</p>
+                    <p>₹{product.price}</p>
+                    <p>{product.description}</p>
+                    <div className="buttondiv">
+                      <NavLink to={"/products/IntelMotherBoard"}>
+                        <button className="buttonproduct">Add To Cart</button>
+                      </NavLink>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              )
+          )}
         </div>
       </main>
     </div>
   );
 };
 
-export default IntelProduct;
+export default IntelMotherBoard;

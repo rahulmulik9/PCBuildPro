@@ -6,7 +6,7 @@ const SelctProd = () => {
   return (
     <div className="selectpro">
       <div className="prod">
-        <NavLink to={"/products/intel"}>
+        <NavLink to={"/products/intelProcessor"}>
           <img
             className="prodimg"
             src="/Images/intel/intel.png"
@@ -15,7 +15,7 @@ const SelctProd = () => {
         </NavLink>
       </div>
       <div className="prod">
-        <NavLink to={"/AMDpro"}>
+        <NavLink to={"/products/AMDProcessor"}>
           <img className="prodimg" src="/Images/AMD/AMD.jpg" alt="Intel"></img>
         </NavLink>
       </div>

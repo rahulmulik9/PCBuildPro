@@ -27,31 +27,30 @@ const IntelProcessor = () => {
 
       <main>
         <div className="subcat">
-          <h2>Processor</h2>
+          <h2>Motherboard</h2>
         </div>
 
         <div className="product">
           {responseData.map(
             (product) =>
-              product.status == "intel" && (
+              product.category == "intel" &&
+              product.quantity > 0 && (
                 <div className="productEach" key={product.compId}>
                   <div className="productImage">
-                    <NavLink to={"/product/AMD/${product.name}"}>
-                      <img
-                        src={`/Images/intel/${product.category}.jpg`}
-                        alt={product.name}
-                      ></img>
-                    </NavLink>
+                    <img
+                      src={`/Images/Intel/${product.link}.jpg`}
+                      alt={product.name}
+                    ></img>
                   </div>
 
                   <div className="productInfo">
-                    <NavLink to={"/product/intel/${product.name}"}>
-                      <p>{product.name}</p>
-                    </NavLink>
+                    <p>{product.name}</p>
                     <p>₹{product.price}</p>
-                    <p>{product.status}</p>
+                    <p>{product.description}</p>
                     <div className="buttondiv">
-                      <button className="buttonproduct">Add to Cart</button>
+                      <NavLink to={"/products/IntelMotherBoard"}>
+                        <button className="buttonproduct">Select</button>
+                      </NavLink>
                     </div>
                   </div>
                 </div>
